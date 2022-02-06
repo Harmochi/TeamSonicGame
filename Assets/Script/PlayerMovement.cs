@@ -4,15 +4,36 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Rigidbody2D body;
+    public PlayerCollision controller;
+    public float runSpeed = 40f;
+    float horizontalMove = 0f;
+    bool jump = false;
+
+    //Scripts can grab this
+    private void Awake()
     {
-        
+        body = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        //Movement
+        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+
+        //Jumping
+        if (Input.GetButtonDown("Jump"))
+        {
+            jump = true;
+        }
+
+        //Crouch
+
+    }
+
+    void FixedUpdate()
+    {
+        controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
+        jump = false;
     }
 }
