@@ -27,8 +27,6 @@ public class PlayerMovement : MonoBehaviour
             jump = true;
         }
 
-        //Crouch
-
     }
 
     void FixedUpdate()
