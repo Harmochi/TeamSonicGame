@@ -105,7 +105,7 @@ public class PlayerMoving : MonoBehaviour
         rb.AddForce(new Vector2(dashDistance * direction, 0f), ForceMode2D.Impulse);
         float gravity = rb.gravityScale;
         rb.gravityScale = 0;
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.2f);
         isDashing = false;
         rb.gravityScale = gravity;
     }
