@@ -25,6 +25,8 @@ public class PlayerMoving : MonoBehaviour
         {
             Jump();
         }
+
+        CheckGrounded();
     }
 
     private void FixedUpdate()
@@ -34,6 +36,30 @@ public class PlayerMoving : MonoBehaviour
 
     void Jump()
     {
-        rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+        if (isGrounded || jumpCount < extraJumps)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+            jumpCount++;
+        }
     }
+
+    void CheckGrounded()
+    {
+        //Checks if grounded
+        if (Physics2D.OverlapCircle(feet.position, 0.5f, groundLayer))
+        {
+            isGrounded = true;
+            jumpCount = 0;
+            jumpCoolDown = Time.time + 0.2f;
+        }
+        else if (Time.time < jumpCoolDown)
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
+    }
+
 }
