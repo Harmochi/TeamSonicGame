@@ -17,6 +17,11 @@ public class PlayerMoving : MonoBehaviour
     float mx;
     float jumpCoolDown;
 
+    public float dashDistance = 15f;
+    bool isDashing;
+    float doubleTapTime;
+    KeyCode lastKeyCode;
+
     private void Update()
     {
         mx = Input.GetAxis("Horizontal");
@@ -26,11 +31,42 @@ public class PlayerMoving : MonoBehaviour
             Jump();
         }
 
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (doubleTapTime > Time.time && lastKeyCode == KeyCode.A)
+            {
+                //Dash
+                StartCoroutine(Dash(-1f));
+            } 
+            else
+            {
+                doubleTapTime = Time.time + 0.5f;
+            }
+
+            lastKeyCode = KeyCode.A;
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (doubleTapTime > Time.time && lastKeyCode == KeyCode.D)
+            {
+                //Dash
+                StartCoroutine(Dash(1f));
+            }
+            else
+            {
+                doubleTapTime = Time.time + 0.5f;
+            }
+
+            lastKeyCode = KeyCode.D;
+        }
+
         CheckGrounded();
     }
 
     private void FixedUpdate()
     {
+        if (!isDashing)
         rb.velocity = new Vector2(mx * speed, rb.velocity.y);
     }
 
@@ -62,4 +98,17 @@ public class PlayerMoving : MonoBehaviour
         }
     }
 
+    IEnumerator Dash (float direction)
+    {
+        isDashing = true;
+        rb.velocity = new Vector2(rb.velocity.x, 0f);
+        rb.AddForce(new Vector2(dashDistance * direction, 0f), ForceMode2D.Impulse);
+        float gravity = rb.gravityScale;
+        rb.gravityScale = 0;
+        yield return new WaitForSeconds(0.4f);
+        isDashing = false;
+        rb.gravityScale = gravity;
+    }
 }
+
+

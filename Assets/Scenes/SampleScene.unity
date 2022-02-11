@@ -718,6 +718,7 @@ MonoBehaviour:
     m_Bits: 256
   rb: {fileID: 1262058054}
   feet: {fileID: 874115820}
+  dashDistance: 10
 --- !u!50 &1262058054
 Rigidbody2D:
   serializedVersion: 4
