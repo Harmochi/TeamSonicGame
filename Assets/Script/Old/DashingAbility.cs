@@ -31,7 +31,7 @@ public class PlayerDashing : MonoBehaviour
         {
             dashDirection = DashDirection.Left;
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.Z))
         {
             dashDirection = DashDirection.Right;
         }
