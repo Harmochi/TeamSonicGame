@@ -7,7 +7,7 @@ public class PlayerMoving : MonoBehaviour
 
     public float speed = 10f;
     public float jumpPower = 15f;
-    public int extraJumps = 1;
+    public int extraJumps = 0;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Transform feet;
@@ -72,10 +72,9 @@ public class PlayerMoving : MonoBehaviour
 
     void Jump()
     {
-        if (isGrounded || jumpCount < extraJumps)
+        if (isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-            jumpCount++;
         }
     }
 
@@ -110,5 +109,3 @@ public class PlayerMoving : MonoBehaviour
         rb.gravityScale = gravity;
     }
 }
-
-
