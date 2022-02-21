@@ -7,7 +7,6 @@ public class PlayerMoving : MonoBehaviour
 
     public float speed = 10f;
     public float jumpPower = 15f;
-    public int extraJumps = 0;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Transform feet;
@@ -84,8 +83,7 @@ public class PlayerMoving : MonoBehaviour
         if (Physics2D.OverlapCircle(feet.position, 0.5f, groundLayer))
         {
             isGrounded = true;
-            jumpCount = 0;
-            jumpCoolDown = Time.time + 0.2f;
+            jumpCoolDown = Time.time + 0.01f;
         }
         else if (Time.time < jumpCoolDown)
         {

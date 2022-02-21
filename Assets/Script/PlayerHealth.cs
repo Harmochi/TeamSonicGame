@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
 
+    private bool hasEntered;
     public int maxHealth = 5;
     public int currentHealth;
 
@@ -16,9 +18,9 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(Input.GetKeyDown(KeyCode.F))
+        if (collision.gameObject.tag == ("Enemy") && !hasEntered)
         {
             TakeDamage(1);
         }
