@@ -21,8 +21,15 @@ public class PlayerMoving : MonoBehaviour
     float doubleTapTime;
     KeyCode lastKeyCode;
 
+    private void Start()
+    {
+        //make it so at the start of the game it sets this too gravity
+    }
+
+
     private void Update()
     {
+
         mx = Input.GetAxis("Horizontal");
 
         if (Input.GetButtonDown("Jump"))

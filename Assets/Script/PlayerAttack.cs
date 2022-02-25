@@ -10,18 +10,27 @@ public class PlayerAttack : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayer;
 
+    public int attackDamage = 1;
+    public float attackRate = 2f;
+    float nextAttackTime = 0f;
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        if(Time.time >= nextAttackTime)
         {
-            Attack();
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                Attack();
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
         }
+
     }
 
     void Attack()
     {
         //Play Attack Animation
-        animator.SetTrigger("Player_Attacking");
+        animator.SetTrigger("Attack");
 
         //Detect Enemies
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
@@ -29,7 +38,17 @@ public class PlayerAttack : MonoBehaviour
         //Damage Enemies
         foreach(Collider2D enemy in hitEnemies)
         {
-            Debug.Log(" We hit " + enemy.name);
+            enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
         }
     }
+
+    void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+
 }

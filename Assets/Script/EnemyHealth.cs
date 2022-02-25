@@ -9,6 +9,10 @@ public class EnemyHealth : MonoBehaviour
     public int maxHealth = 2;
     public int currentHealth;
 
+    public Rigidbody2D rb;
+    public SpriteRenderer sr;
+    public CircleCollider2D cc;
+
 
     void Start()
     {
@@ -21,11 +25,27 @@ public class EnemyHealth : MonoBehaviour
         {
             TakeDamage(1);
         }
+    }
 
-        void TakeDamage(int damage)
+        public void TakeDamage(int damage)
         {
             currentHealth -= damage;
 
+            if(currentHealth <= 0)
+            {
+                Die();
+            }
         }
-    }
+
+        void Die()
+        {
+            Debug.Log("Enemy died!");
+
+        Destroy(rb);
+        Destroy(sr);
+        Destroy(cc);
+        this.enabled = false;
+        
+        }
+    
 }
