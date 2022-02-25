@@ -817,7 +817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874115819}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.58, z: 0}
+  m_LocalPosition: {x: 0, y: -1.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1262058057}
@@ -1091,7 +1091,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.1}
+  m_Offset: {x: 0, y: 0.008644044}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1102,7 +1102,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.3}
+  m_Size: {x: 1, y: 3.4623823}
   m_EdgeRadius: 0
 --- !u!212 &1262058056
 SpriteRenderer:
@@ -1230,7 +1230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1262058060}
   attackPoint: {fileID: 1423543912}
-  attackRange: 0.72
+  attackRange: 0.62
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -1251,7 +1251,7 @@ PrefabInstance:
     - target: {fileID: 5586085599464947195, guid: ff373ac869a7b05498d4a3db15b438a5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.78
+      value: -1.81
       objectReference: {fileID: 0}
     - target: {fileID: 5586085599464947195, guid: ff373ac869a7b05498d4a3db15b438a5,
         type: 3}
@@ -1601,7 +1601,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423543911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.66, y: 0.6, z: 0}
+  m_LocalPosition: {x: 1.66, y: 0.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1262058057}
@@ -1799,16 +1799,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1262058057}
-    - target: {fileID: 5586085599464947196, guid: ff373ac869a7b05498d4a3db15b438a5,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5586085599464947197, guid: ff373ac869a7b05498d4a3db15b438a5,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5586085599464947199, guid: ff373ac869a7b05498d4a3db15b438a5,
         type: 3}
       propertyPath: m_Name

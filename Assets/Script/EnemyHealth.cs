@@ -45,6 +45,8 @@ public class EnemyHealth : MonoBehaviour
         Destroy(sr);
         Destroy(cc);
         this.enabled = false;
+
+        //make it so seeker is disabled
         
         }
     
