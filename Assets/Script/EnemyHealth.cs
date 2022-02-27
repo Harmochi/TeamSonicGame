@@ -21,7 +21,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == ("Player") && !hasEntered)
+        if (collision.gameObject.tag == ("AttackPoint") && !hasEntered)
         {
             TakeDamage(1);
         }

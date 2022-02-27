@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: 6abde926bf7061849ab0f0d2891513a6
+guid: 3937fa8aa5f9ee747a081fdcc71e2524
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3669988750603536968
-    second: parry sheet_0
+      213: -8252308235864862871
+    second: parry sheet (1)_0
   - first:
-      213: 1828132429455402434
-    second: parry sheet_1
+      213: -3285550673986814311
+    second: parry sheet (1)_1
   - first:
-      213: -8495124954731329169
-    second: parry sheet_2
+      213: -6283223005892120958
+    second: parry sheet (1)_2
   - first:
-      213: -6869087202571717491
-    second: parry sheet_3
+      213: -1178911964737485402
+    second: parry sheet (1)_3
   - first:
-      213: 62358070095915684
-    second: parry sheet_4
+      213: -160822566629078420
+    second: parry sheet (1)_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -102,106 +102,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: parry sheet_0
+      name: parry sheet (1)_0
       rect:
         serializedVersion: 2
-        x: 455
+        x: 383
         y: 370
         width: 198
         height: 324
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84a4761035b6ee230800000000000000
-      internalID: 3669988750603536968
+      spriteID: 96f8e30d169e97d80800000000000000
+      internalID: -8252308235864862871
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: parry sheet_1
+      name: parry sheet (1)_1
       rect:
         serializedVersion: 2
-        x: 643
+        x: 621
         y: 370
         width: 195
         height: 339
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c5af0c32c4de5910800000000000000
-      internalID: 1828132429455402434
+      spriteID: 99e7871d1116762d0800000000000000
+      internalID: -3285550673986814311
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: parry sheet_2
+      name: parry sheet (1)_2
       rect:
         serializedVersion: 2
-        x: 853
+        x: 856
         y: 370
         width: 192
         height: 330
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f69ceaedcd04b1a80800000000000000
-      internalID: -8495124954731329169
+      spriteID: 28eec3157f18dc8a0800000000000000
+      internalID: -6283223005892120958
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: parry sheet_3
+      name: parry sheet (1)_3
       rect:
         serializedVersion: 2
-        x: 1060
+        x: 1088
         y: 370
         width: 192
         height: 330
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d84f78f45991ca0a0800000000000000
-      internalID: -6869087202571717491
+      spriteID: 6a54d5070d9a3afe0800000000000000
+      internalID: -1178911964737485402
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: parry sheet_4
+      name: parry sheet (1)_4
       rect:
         serializedVersion: 2
-        x: 1267
+        x: 1343
         y: 370
         width: 195
         height: 339
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4aa22f8955a8dd000800000000000000
-      internalID: 62358070095915684
+      spriteID: c6a053c4ab4a4cdf0800000000000000
+      internalID: -160822566629078420
       vertices: []
       indices: 
       edges: []
