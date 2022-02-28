@@ -11,6 +11,10 @@ public class PlayerMoving : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Transform feet;
 
+    private Rigidbody2D m_Rigidbody2D;
+    private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+    private Vector3 m_Velocity = Vector3.zero;
+
     int jumpCount = 0;
     bool isGrounded;
     float mx;
@@ -21,15 +25,15 @@ public class PlayerMoving : MonoBehaviour
     float doubleTapTime;
     KeyCode lastKeyCode;
 
+    public Animator animator;
+
     private void Start()
     {
         //make it so at the start of the game it sets this too gravity
     }
 
-
     private void Update()
     {
-
         mx = Input.GetAxis("Horizontal");
 
         if (Input.GetButtonDown("Jump"))
@@ -67,6 +71,19 @@ public class PlayerMoving : MonoBehaviour
             lastKeyCode = KeyCode.D;
         }
 
+
+        //flip Character
+        Vector3 characterScale = transform.localScale;
+        if(Input.GetAxis("Horizontal") < 0)
+        {
+            characterScale.x = -1;
+        }
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            characterScale.x = 1;
+        }
+        transform.localScale = characterScale;
+
         CheckGrounded();
     }
 
@@ -101,6 +118,12 @@ public class PlayerMoving : MonoBehaviour
             isGrounded = false;
         }
     }
+
+    private void Flip()
+    {
+
+    }
+
 
     IEnumerator Dash (float direction)
     {

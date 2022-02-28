@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Flooring
   - Enemy
+  - Sword
   layers:
   - Default
   - TransparentFX
