@@ -1,18 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStamina : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Slider staminaBar;
+
+    private int maxStamina = 3;
+    private int currentStamina;
+
+    public static PlayerStamina instance;
+
+    private void Awake()
     {
-        
+        instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        currentStamina = maxStamina;
+        staminaBar.maxValue = maxStamina;
+        staminaBar.value = maxStamina;
     }
 }
