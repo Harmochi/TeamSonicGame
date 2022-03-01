@@ -20,10 +20,9 @@ public class PlayerMove : MonoBehaviour
     float jumpCoolDown;
     KeyCode lastKeyCode;
 
-    public float dashSpeed;
-    private float dashTime;
-    public float startDashTime;
-    private int direction;
+    [Header("Dashing")]
+    public float dashDistance = 15f;
+    bool isDashing;
 
     public Animator animator;
 
@@ -31,30 +30,21 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         rb.gravityScale = 5f;
-        dashTime = startDashTime;
     }
 
-    public void Update()
+    void Update()
     {
         //Dashing 
-        if (Input.GetKeyDown(KeyCode.LeftShift)) //add stam with &&
-            PlayerStamina.instance.UseStamina(1);
+      if (Input.GetKey(KeyCode.A) && Input.GetKeyDown(KeyCode.LeftShift))
         {
-            if (Input.GetAxis("Horizontal") < 0)
-            {
-                direction = 1;
-            }
-            else if (Input.GetAxis("Horizontal") > 0)
-            {
-                direction = 2;
-            }
+            StartCoroutine(Dash(-1f));
         }
 
-        if (dashTime <= 0) //if stamina 
+        if (Input.GetKey(KeyCode.D) && Input.GetKeyDown(KeyCode.LeftShift))
         {
-            dashTime = startDashTime;
-
+            StartCoroutine(Dash(1f));
         }
+
 
         //forgot lol
         mx = Input.GetAxis("Horizontal");
@@ -83,6 +73,7 @@ public class PlayerMove : MonoBehaviour
     //Speed
     private void FixedUpdate()
     {
+        if(!isDashing)
         rb.velocity = new Vector2(mx * speed, rb.velocity.y);
     }
 
@@ -112,4 +103,17 @@ public class PlayerMove : MonoBehaviour
             isGrounded = false;
         }
     }
+
+    IEnumerator Dash(float direction)
+    {
+        isDashing = true;
+        rb.velocity = new Vector2(rb.velocity.x, 0f);
+        rb.AddForce(new Vector2(dashDistance * direction, 0f), ForceMode2D.Impulse);
+        float gravity = rb.gravityScale;
+        rb.gravityScale = 0;
+        yield return new WaitForSeconds(0.2f);
+        isDashing = false;
+        rb.gravityScale = 5;
+    }
+
 }
