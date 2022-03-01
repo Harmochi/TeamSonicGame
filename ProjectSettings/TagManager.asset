@@ -50,6 +50,9 @@ TagManager:
   - name: Foreground
     uniqueID: 1263189763
     locked: 0
+  - name: Death
+    uniqueID: 2729545181
+    locked: 0
   - name: Enemy
     uniqueID: 3859146529
     locked: 0

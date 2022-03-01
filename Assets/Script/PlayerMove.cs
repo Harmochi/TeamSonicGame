@@ -45,7 +45,6 @@ public class PlayerMove : MonoBehaviour
             StartCoroutine(Dash(1f));
         }
 
-
         //forgot lol
         mx = Input.GetAxis("Horizontal");
 
