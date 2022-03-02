@@ -6,6 +6,12 @@ public class SwordMovement : MonoBehaviour
 {
     [SerializeField] private GameObject magnet;
     [SerializeField] private float speed = 1.5f;
+    [SerializeField] Rigidbody2D rb;
+
+    void Start()
+    {
+        transform.eulerAngles = new Vector3(0, 0, 0);
+    }
 
     void Update()
     {
