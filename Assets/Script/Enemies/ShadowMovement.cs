@@ -4,15 +4,60 @@ using UnityEngine;
 
 public class ShadowMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField] private float attackCooldown;
+    [SerializeField] private float range;
+    [SerializeField] private float colliderDistance;
+    [SerializeField] private int damage;
+    [SerializeField] private BoxCollider2D boxCollider;
+    [SerializeField] private LayerMask playerLayer;
+    private float cooldownTimer = Mathf.Infinity;
+    private Animator anim;
+    private PlayerHealth playerhealth;
+
+
+    private void Awake()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        cooldownTimer += Time.deltaTime;
+
+        //Attack when player is in sight
+        if (PlayerInSight())
+        {
+            if (cooldownTimer >= attackCooldown)
+            {
+                //Attack
+                cooldownTimer = 0;
+                //when u have animation: anim.SetTrigger("whateverthenameis");
+            }
+        }
+    }
+
+    private bool PlayerInSight()
+    {
+        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
+            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z),
+            0, Vector2.left, 0, playerLayer);
+        return hit.collider !=null;
+    }
+
+    //colour??
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
+           new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
+    }
+
+    private void DamagePlayer()
+    {
+        if (PlayerInSight())
+        {
+            //Damage player health
+        }
     }
 }
