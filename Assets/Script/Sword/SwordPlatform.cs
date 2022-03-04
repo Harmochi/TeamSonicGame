@@ -16,7 +16,7 @@ public class SwordPlatform : MonoBehaviour
         }
 
     }
-
+    //on collision taf flooring stop moving 
     void PlatformLeft()
     {
         transform.eulerAngles = new Vector3(0, 0, 90);

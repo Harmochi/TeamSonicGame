@@ -20,6 +20,12 @@ public class PlayerHealth : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+
+        if (collision.gameObject.tag == ("Death") && !hasEntered)
+        {
+            SceneManager.LoadScene("Level 1");
+        }
+
         if (collision.gameObject.tag == ("Enemy") && !hasEntered)
         {
             TakeDamage(1);
@@ -36,11 +42,14 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+
+
     public void Death()
     {
         if(currentHealth == 0)
         {
             Destroy(gameObject);
+            SceneManager.LoadScene("Level 1");
     
         }
     }
