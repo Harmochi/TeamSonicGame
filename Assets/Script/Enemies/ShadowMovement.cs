@@ -42,6 +42,10 @@ public class ShadowMovement : MonoBehaviour
         RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
             new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z),
             0, Vector2.left, 0, playerLayer);
+
+        if (hit.collider != null)
+            playerhealth = hit.transform.GetComponent<PlayerHealth>();
+
         return hit.collider !=null;
     }
 
@@ -52,12 +56,13 @@ public class ShadowMovement : MonoBehaviour
         Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
     }
-
+    
     private void DamagePlayer()
     {
+        //If player is still in range, damage him
         if (PlayerInSight())
         {
-            //Damage player health
+            //this needs to get fixed
         }
     }
 }

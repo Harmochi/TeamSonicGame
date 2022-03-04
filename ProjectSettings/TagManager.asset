@@ -7,6 +7,7 @@ TagManager:
   - Flooring
   - Enemy
   - Sword
+  - Death
   layers:
   - Default
   - TransparentFX

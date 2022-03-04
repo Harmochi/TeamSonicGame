@@ -41,9 +41,8 @@ public class EnemyHealth : MonoBehaviour
         {
             Debug.Log("Enemy died!");
 
-        Destroy(rb);
-        Destroy(sr);
-        Destroy(cc);
+        Destroy(gameObject);
+
         this.enabled = false;
 
         //make it so seeker is disabled

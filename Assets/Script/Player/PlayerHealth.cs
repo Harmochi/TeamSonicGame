@@ -5,31 +5,43 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-
+    [SerializeField] Transform spawnPoint;
     private bool hasEntered;
     public int maxHealth = 5;
     public int currentHealth;
 
     public HealthBar healthBar;
 
-    void Start()
+    void Awake()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == ("Enemy") && !hasEntered)
         {
             TakeDamage(1);
+
+
+            void TakeDamage(int damage)
+            {
+                currentHealth -= damage;
+
+                healthBar.SetHealth(currentHealth);
+
+                Death();
+            }
         }
+    }
 
-        void TakeDamage(int damage)
+    public void Death()
+    {
+        if(currentHealth == 0)
         {
-            currentHealth -= damage;
-
-            healthBar.SetHealth(currentHealth);
+            Destroy(gameObject);
+    
         }
     }
 }

@@ -30,6 +30,7 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         rb.gravityScale = 5f;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -45,12 +46,14 @@ public class PlayerMove : MonoBehaviour
             StartCoroutine(Dash(1f));
         }
 
-        //forgot lol
+        //Player Move left and right
         mx = Input.GetAxis("Horizontal");
+        animator.SetFloat("Speed", Mathf.Abs(mx));
 
         //Jumping Code
         if (Input.GetButtonDown("Jump"))
         {
+            //animator.SetTrigger("isJumping");
             Jump();
         }
 
@@ -106,6 +109,7 @@ public class PlayerMove : MonoBehaviour
     IEnumerator Dash(float direction)
     {
         isDashing = true;
+        animator.SetTrigger("Dash");
         rb.velocity = new Vector2(rb.velocity.x, 0f);
         rb.AddForce(new Vector2(dashDistance * direction, 0f), ForceMode2D.Impulse);
         float gravity = rb.gravityScale;
