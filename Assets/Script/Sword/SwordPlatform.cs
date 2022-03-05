@@ -4,21 +4,57 @@ using UnityEngine;
 
 public class SwordPlatform : MonoBehaviour
 {
+    [SerializeField] private float speed = 4f;
     [SerializeField] Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
-
-        if (Input.GetKeyDown(KeyCode.M)) //change tghis so if the player is facing a certain way
+        //change tghis so if the player is facing a certain way
+        if (Input.GetAxis("Horizontal") == -1)
         {
             PlatformLeft();
+            Debug.Log("Activate left");
         }
 
+        if (Input.GetAxis("Horizontal") == 1)
+        {
+            PlatformRight();
+            Debug.Log("Activate right");
+        }
     }
-    //on collision taf flooring stop moving 
+
+    //Move sword that direction 
     void PlatformLeft()
     {
-        transform.eulerAngles = new Vector3(0, 0, 90);
+        var rotationVector = transform.rotation.eulerAngles;
+        rotationVector.z = 90;
+        transform.rotation = Quaternion.Euler(rotationVector);
+
     }
+
+    void PlatformRight()
+    {
+        var rotationVector = transform.rotation.eulerAngles;
+        rotationVector.z = 270;
+        transform.rotation = Quaternion.Euler(rotationVector);
+    }
+
+
+    //Detect floor 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Flooring"))
+        {
+            GetComponent<Collider2D>().enabled = true;
+        }
+    }
+
+    //Switch between scripts
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K)) GetComponent<SwordPlatform>().enabled = false;
+        if (Input.GetKeyDown(KeyCode.K)) GetComponent<SwordMovement>().enabled = true;
+    }
+
 }

@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Sword
   - Death
+  - Magnet
   layers:
   - Default
   - TransparentFX
