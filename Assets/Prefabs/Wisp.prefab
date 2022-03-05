@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5586085599200956386}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.23, y: -0.08, z: 0}
+  m_LocalPosition: {x: 0.29, y: -0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 5586085599464947195}
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5b0e281541596e478631bd61be7c0db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aiPath: {fileID: 5586085599464947197}
+  aiPath: {fileID: 0}
 --- !u!1 &5586085599464947199
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,10 +127,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5586085599464947195}
   - component: {fileID: 5586085599464947194}
-  - component: {fileID: 5586085599464947197}
-  - component: {fileID: 5586085599464947196}
   - component: {fileID: 5586085599464947192}
-  - component: {fileID: 5586085599464947193}
+  - component: {fileID: 3092963359637419464}
+  - component: {fileID: 1465196298}
+  - component: {fileID: 7629826298248930030}
   m_Layer: 9
   m_Name: Wisp
   m_TagString: Enemy
@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 5586085599464947199}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.72, y: 1.99, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 0.9, z: 1}
   m_Children:
   - {fileID: 5586085599200956384}
   m_Father: {fileID: 0}
@@ -181,62 +181,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &5586085599464947197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5586085599464947199}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 5
-  radius: 0.59
-  height: 2
-  canMove: 1
-  maxSpeed: 2
-  gravity: {x: 0, y: 0, z: 0}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  centerOffsetCompatibility: NaN
-  repathRateCompatibility: NaN
-  canSearchCompability: 0
-  orientation: 1
-  enableRotation: 0
-  autoRepath:
-    mode: 2
-    interval: 0.5
-    sensitivity: 10
-    maximumInterval: 2
-    visualizeSensitivity: 0
-  targetCompatibility: {fileID: 0}
-  maxAcceleration: -2.5
-  rotationSpeed: 360
-  slowdownDistance: 0.6
-  pickNextWaypointDist: 1.2
-  endReachedDistance: 0.2
-  alwaysDrawGizmos: 0
-  slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
-  constrainInsideGraph: 0
---- !u!114 &5586085599464947196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5586085599464947199}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  target: {fileID: 0}
 --- !u!58 &5586085599464947192
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -253,7 +197,19 @@ CircleCollider2D:
   m_Offset: {x: 0.05, y: -0.12}
   serializedVersion: 2
   m_Radius: 0.61
---- !u!114 &5586085599464947193
+--- !u!114 &3092963359637419464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5586085599464947199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae2f6d4ca19c0945adcce8e43a51910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1465196298
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,6 +223,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   currentHealth: 20
-  rb: {fileID: 5586085599200956385}
-  sr: {fileID: 5586085599200956387}
-  cc: {fileID: 5586085599464947192}
+--- !u!114 &7629826298248930030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5586085599464947199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5c578e311fb704883c56a6ce0a95fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amp: 1
+  freq: 2

@@ -9,10 +9,6 @@ public class EnemyHealth : MonoBehaviour
     public int maxHealth = 2;
     public int currentHealth;
 
-    public Rigidbody2D rb;
-    public SpriteRenderer sr;
-    public CircleCollider2D cc;
-
 
     void Start()
     {

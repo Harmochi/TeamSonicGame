@@ -12,6 +12,7 @@ public class SwordMovement : MonoBehaviour
     {
         GetComponent<SwordPlatform>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
+
         var rotationVector = transform.rotation.eulerAngles;
         rotationVector.z = 0;
         transform.rotation = Quaternion.Euler(rotationVector);

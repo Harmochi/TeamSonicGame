@@ -15,6 +15,8 @@ public class PlayerStamina : MonoBehaviour
 
     public static PlayerStamina instance;
 
+    public PlayerStamina healthBar;
+
     private void Awake()
     {
         instance = this;
