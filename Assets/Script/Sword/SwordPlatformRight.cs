@@ -14,7 +14,7 @@ public class SwordPlatformRight : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(2f, 0f);
+        rb.velocity = new Vector2(10f, 0f);
     }
 
     //Switch between scripts
