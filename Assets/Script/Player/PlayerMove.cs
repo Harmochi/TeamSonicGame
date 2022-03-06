@@ -53,12 +53,10 @@ public class PlayerMove : MonoBehaviour
         //Jumping Code
         if (Input.GetButtonDown("Jump"))
         {
-            animator.SetBool("isJumping", true);
             Jump();
         }
 
-        //Jump yVelocity
-        animator.SetFloat("yVelocity", rb.velocity.y);
+      
 
         //Flip Character
         Vector3 characterScale = transform.localScale;
@@ -98,7 +96,6 @@ public class PlayerMove : MonoBehaviour
         if (Physics2D.OverlapCircle(feet.position, 0.5f, groundLayer))
         {
             isGrounded = true;
-            animator.SetBool("isJumping", !isGrounded);
             jumpCoolDown = Time.time + 0.01f;
         }
         else if (Time.time < jumpCoolDown)

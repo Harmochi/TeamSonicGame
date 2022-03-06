@@ -4,29 +4,28 @@ using UnityEngine;
 
 public class SwordPlatformLeft : MonoBehaviour
 {
+    private Rigidbody2D rb;
 
-    public float speed;
-    public float translationY;
-    [SerializeField] Rigidbody2D rb;
-    [SerializeField] BoxCollider2D bc;
-    [SerializeField] private Transform Sword;
-
-    //Detect floor 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Awake()
     {
-        if (collision.gameObject.CompareTag("Flooring"))
-        {
-            this.rb.velocity = Vector3.zero;
-            GetComponent<Collider2D>().enabled = true;
-        }
+        rb = GetComponent<Rigidbody2D>();
     }
+
+    private void FixedUpdate()
+    {
+        rb.velocity = new Vector2(-2f, 0f);
+    }
+
+
 
     //Switch between scripts
     public void Update()
     {
+        GetComponent<Collider2D>().enabled = true;
+
         if (Input.GetKeyDown(KeyCode.H)) transform.eulerAngles = new Vector3(0, 0, 0);
         if (Input.GetKeyDown(KeyCode.H)) GetComponent<SwordPlatformLeft>().enabled = false;
-        if (Input.GetKeyDown(KeyCode.H)) GetComponent<SwordMovement>().enabled = true;
+        if (Input.GetKeyDown(KeyCode.H)) GetComponent<SwordMovementOld>().enabled = true;
     }
 
 }

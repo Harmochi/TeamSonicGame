@@ -5,30 +5,26 @@ using UnityEngine;
 public class SwordPlatformRight : MonoBehaviour
 {
 
-    [SerializeField] private float speed = 4f;
-    [SerializeField] Rigidbody2D rb;
-
-    // Start is called before the first frame update
-    void Start()
+    private Rigidbody2D rb;
+   
+    private void Awake()
     {
-        GetComponent<Collider2D>().enabled = true;
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    //Detect floor 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void FixedUpdate()
     {
-        if (collision.gameObject.CompareTag("Flooring"))
-        {
-            GetComponent<Collider2D>().enabled = true;
-        }
+        rb.velocity = new Vector2(2f, 0f);
     }
 
     //Switch between scripts
     public void Update()
     {
+        GetComponent<Collider2D>().enabled = true;
+
         if (Input.GetKeyDown(KeyCode.K)) transform.eulerAngles = new Vector3(0, 0, 0);
         if (Input.GetKeyDown(KeyCode.K)) GetComponent<SwordPlatformRight>().enabled = false;
-        if (Input.GetKeyDown(KeyCode.K)) GetComponent<SwordMovement>().enabled = true;
+        if (Input.GetKeyDown(KeyCode.K)) GetComponent<SwordMovementOld>().enabled = true;
     }
 
 }
