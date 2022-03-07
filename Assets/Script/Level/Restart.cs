@@ -11,5 +11,10 @@ public class Restart : MonoBehaviour
         {
             SceneManager.LoadScene("Level 1");
         }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            Application.Quit();
+        }
     }
 }
